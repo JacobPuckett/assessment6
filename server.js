@@ -1,5 +1,5 @@
 const express = require('express')
-// const path = require('path')
+const path = require('path')
 const app = express()
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
@@ -17,16 +17,16 @@ var rollbar = new Rollbar({
 
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
-// app.get('/', (req,res) => {
-//     res.status(200).sendFile(path.join(__dirname, '../public/index.html'))
-// }) 
+app.get('/', (req,res) => {
+    res.status(200).sendFile(path.join(__dirname, '../public/index.html'))
+}) 
 
-// app.get('/css', (req,res) => {
-//     res.status(200).sendFile(path.join(__dirname, '../public/styles.css'))
-// })
-// app.get('/js', (req,res) => {
-//     res.status(200).sendFile(path.join(__dirname, '../public/main.js'))
-// })
+app.get('/css', (req,res) => {
+    res.status(200).sendFile(path.join(__dirname, '../public/styles.css'))
+})
+app.get('/js', (req,res) => {
+    res.status(200).sendFile(path.join(__dirname, '../public/main.js'))
+})
 
 
 app.get('/api/robots', (req, res) => {
